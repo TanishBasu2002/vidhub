@@ -1,0 +1,173 @@
+:root {
+    --yt-red: #FF0000;
+    --yt-dark-bg: #0f0f0f;
+    --yt-light-bg: #ffffff;
+    --yt-dark-text: #ffffff;
+    --yt-light-text: #000000;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--yt-light-bg);
+    color: var(--yt-light-text);
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .dark body {
+    background-color: var(--yt-dark-bg);
+    color: var(--yt-dark-text);
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--yt-red);
+    color: white;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .nav-buttons a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1rem;
+    font-weight: 600;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-button {
+    background-color: var(--yt-red);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .feature {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: background 0.3s;
+  }
+
+  .dark .feature {
+    background: #1c1c1c;
+  }
+
+  .pricing {
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .pricing h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+
+  .pricing-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    width: 300px;
+    transition: background 0.3s;
+  }
+
+  .dark .card {
+    background: #1a1a1a;
+  }
+
+  .card h3 {
+    margin-bottom: 1rem;
+  }
+
+  .card p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .card .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .testimonials {
+    padding: 4rem 2rem;
+    background: #f9f9f9;
+    text-align: center;
+  }
+
+  .dark .testimonials {
+    background: #121212;
+  }
+
+  .testimonial {
+    margin-bottom: 2rem;
+  }
+
+  .testimonial p {
+    font-style: italic;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #222;
+    color: white;
+  }
+
+  .toggle-mode {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background: var(--yt-red);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }

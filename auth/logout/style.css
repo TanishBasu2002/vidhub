@@ -1,0 +1,7 @@
+.floating-label {
+    @apply absolute left-3 -top-3 bg-white px-1 text-sm transition-all duration-200;
+}
+input:focus + .floating-label,
+input:not(:placeholder-shown) + .floating-label {
+    @apply text-blue-500;
+}
