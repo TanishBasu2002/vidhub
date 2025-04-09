@@ -1,11 +1,17 @@
 <?php
 // sidebar.php
+// Get the base URL dynamically
+$base_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+$dashboard_url = $base_url . '/vidhub/dashboard/';
+$root_url = $base_url . '/vidhub/'
 ?>
 <nav class="sidebar">
     <header>
         <div class="image-text">
             <span class="image">
-                <img src="assets/images/logo.png" alt="VIDHUB Logo">
+                <a href="<?php echo $base_url; ?>">
+                    <img src="<?php echo $root_url; ?>assets/images/logo.png" alt="VIDHUB Logo">
+                </a>
             </span>
             <div class="text logo-text">
                 <span class="name">VIDHUB</span>
@@ -18,114 +24,114 @@
     <hr aria-hidden="true">
     
     <div class="menu-bar">
-        <ul class="menu"> <!-- Changed to proper ul element -->
+        <ul class="menu">
             <li class="nav-link">
-                <a href="index.php" aria-current="page">
+                <a href="<?php echo $dashboard_url; ?>" aria-current="page">
                     <i class='bx bx-home-alt icon' aria-hidden="true"></i>
                     <span class="text nav-text">Home</span>
                 </a>
             </li>
             
             <li class="nav-link">
-                <a href="trending/index.php"> <!-- Fixed typo in href -->
+                <a href="<?php echo $dashboard_url; ?>trending/">
                     <i class='bx bx-bar-chart-alt-2 icon' aria-hidden="true"></i>
                     <span class="text nav-text">Trending</span>
                 </a>
             </li>
             
             <li class="nav-link">
-                <a href="history.php">
+                <a href="<?php echo $dashboard_url; ?>history/">
                     <i class='bx bx-history icon' aria-hidden="true"></i>
                     <span class="text nav-text">History</span>
                 </a>
             </li>
             
             <li class="nav-link">
-                <a href="account.php">
+                <a href="<?php echo $dashboard_url; ?>account/">
                     <i class='bx bx-user-circle icon' aria-hidden="true"></i>
                     <span class="text nav-text">Account</span>
                 </a>
             </li>
             
             <li class="nav-link">
-                <a href="your_videos.php"> <!-- Fixed pluralization -->
+                <a href="<?php echo $dashboard_url; ?>your_videos/">
                     <i class='bx bx-video icon' aria-hidden="true"></i>
                     <span class="text nav-text">Your Videos</span>
                 </a>
             </li>
             
             <li class="nav-link">
-                <a href="followers.php"> <!-- Fixed typo in href -->
+                <a href="<?php echo $dashboard_url; ?>followers/">
                     <i class='bx bx-group icon' aria-hidden="true"></i>
                     <span class="text nav-text">Followers</span>
                 </a>
             </li>
             
             <li class="nav-link">
-                <a href="playlist.php">
+                <a href="<?php echo $dashboard_url; ?>playlist/">
                     <i class='bx bx-movie-play icon' aria-hidden="true"></i>
                     <span class="text nav-text">Playlist</span>
                 </a>
             </li>
             
             <li class="nav-link">
-                <a href="watch_later.php">
+                <a href="<?php echo $dashboard_url; ?>watch_later/">
                     <i class='bx bx-time-five icon' aria-hidden="true"></i>
                     <span class="text nav-text">Watch Later</span>
                 </a>
             </li>
             
             <li class="nav-link">
-                <a href="liked_videos.php"> <!-- Fixed href -->
+                <a href="<?php echo $dashboard_url; ?>liked_videos/">
                     <i class='bx bx-heart icon' aria-hidden="true"></i>
                     <span class="text nav-text">Liked Videos</span>
                 </a>
             </li>
             
             <li class="nav-link">
-                <a href="help.php">
+                <a href="<?php echo $dashboard_url; ?>help/">
                     <i class='bx bx-help-circle icon' aria-hidden="true"></i>
                     <span class="text nav-text">Help</span>
                 </a>
             </li>
             
             <li class="nav-link">
-                <a href="privacy_policy.php">
+                <a href="<?php echo $dashboard_url; ?>privacy_policy/">
                     <i class='bx bx-lock-alt icon' aria-hidden="true"></i>
                     <span class="text nav-text">Privacy Policy</span>
                 </a>
             </li>
             
             <li class="nav-link">
-                <a href="terms_conditions.php"> <!-- Fixed href -->
+                <a href="<?php echo $dashboard_url; ?>terms_conditions/">
                     <i class='bx bx-donate-heart icon' aria-hidden="true"></i>
                     <span class="text nav-text">Terms & Conditions</span>
                 </a>
             </li>
             
             <li class="nav-link">
-                <a href="about.php">
+                <a href="<?php echo $dashboard_url; ?>about/">
                     <i class='bx bx-label icon' aria-hidden="true"></i>
                     <span class="text nav-text">About</span>
                 </a>
             </li>
             
             <li class="nav-link">
-                <a href="copyright/index.php"> <!-- Fixed href -->
+                <a href="<?php echo $dashboard_url; ?>copyright/">
                     <i class='bx bx-copy-alt icon' aria-hidden="true"></i>
                     <span class="text nav-text">Copyright</span>
                 </a>
             </li>
             
             <li class="nav-link">
-                <a href="send_feedback.php"> <!-- Fixed href -->
+                <a href="<?php echo $dashboard_url; ?>send_feedback/">
                     <i class='bx bx-edit-alt icon' aria-hidden="true"></i>
                     <span class="text nav-text">Send Feedback</span>
                 </a>
             </li>
             
             <li class="nav-link">
-                <a href="developers.php"> <!-- Fixed href -->
+                <a href="<?php echo $dashboard_url; ?>developers/">
                     <i class='bx bx-terminal icon' aria-hidden="true"></i>
                     <span class="text nav-text">Developers</span>
                 </a>
@@ -135,9 +141,9 @@
         <div class="bottom-content">
             <hr aria-hidden="true">
             
-            <ul> <!-- Added ul for bottom content -->
+            <ul>
                 <li class="nav-link">
-                    <a href="logout.php" id="logout-btn"> <!-- Changed to proper link -->
+                    <a href="<?php echo $base_url; ?>/vidhub/" id="logout-btn">
                         <i class='bx bx-log-out icon' aria-hidden="true"></i>
                         <span class="text nav-text">Logout</span>
                     </a>
@@ -190,11 +196,11 @@ modeToggle.addEventListener('click', () => {
 document.getElementById('logout-btn').addEventListener('click', function(e) {
     e.preventDefault();
     // Add your logout logic here
-    fetch('logout.php', {
+    fetch('<?php echo $base_url; ?>/vidhub/', {
         method: 'POST'
     }).then(response => {
         if (response.ok) {
-            window.location.href = 'index.php';
+            window.location.href = '<?php echo $base_url; ?>/vidhub/';
         }
     });
 });

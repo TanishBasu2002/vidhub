@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VidHub - Watch Later</title>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- Boxicons CSS -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
@@ -15,12 +15,12 @@
 
 <body>
     <!-- Sidebar -->
-    <?php include 'sidebar.php'; ?>
+    <?php include '../../ui/sidebar.php'; ?>
 
     <!-- Main Content -->
     <div class="main-content" id="main-content">
         <!-- Top Bar -->
-        <?php include 'topbar.php'; ?>
+        <?php include '../../ui/topbar.php'; ?>
 
         <!-- Watch Later Section -->
         <div class="watch-later-section">
@@ -29,7 +29,7 @@
             </div>
             <div class="watch-later-list" id="watch-later-list">
                 <div class="watch-later-item">
-                    <img class="watch-later-thumbnail" src="assets/images/v1.jpg" alt="Amazing Travel Vlog">
+                    <img class="watch-later-thumbnail" src="../../assets/images/v1.jpg" alt="Amazing Travel Vlog">
                     <div class="watch-later-info">
                         <div class="watch-later-title-text">Amazing Travel Vlog</div>
                         <div class="watch-later-details">Channel: Travel Life | Duration: 12:34 | Added: 2 days ago</div>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div class="watch-later-item">
-                    <img class="watch-later-thumbnail" src="assets/images/v2.jpg" alt="Tech Review: Latest Gadgets">
+                    <img class="watch-later-thumbnail" src="../../assets/images/v2.jpg" alt="Tech Review: Latest Gadgets">
                     <div class="watch-later-info">
                         <div class="watch-later-title-text">Tech Review: Latest Gadgets</div>
                         <div class="watch-later-details">Channel: Tech Guru | Duration: 08:15 | Added: 3 days ago</div>
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="watch-later-item">
-                    <img class="watch-later-thumbnail" src="assets/images/v3.jpg" alt="Cooking with Passion">
+                    <img class="watch-later-thumbnail" src="../../assets/images/v3.jpg" alt="Cooking with Passion">
                     <div class="watch-later-info">
                         <div class="watch-later-title-text">Cooking with Passion</div>
                         <div class="watch-later-details">Channel: Chef Delight | Duration: 15:20 | Added: 5 days ago</div>
@@ -104,6 +104,7 @@
                 <p>No videos added to Watch Later yet.</p>
             </div>
         </div>
+        <?php include('../../ui/footer.php'); ?>
     </div>
 
     <!-- JavaScript -->

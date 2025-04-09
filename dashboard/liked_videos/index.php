@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VidHub - Liked Videos</title>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- Boxicons CSS -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
@@ -17,12 +17,12 @@
 
 <body>
     <!-- Sidebar -->
-    <?php include 'sidebar.php'; ?>
+    <?php include '../../ui/sidebar.php'; ?>
 
     <!-- Main Content -->
     <div class="main-content" id="main-content">
         <!-- Top Bar -->
-        <?php include 'topbar.php'; ?>
+        <?php include '../../ui/topbar.php'; ?>
 
         <!-- Liked Videos Section -->
         <div class="liked-videos-section">
@@ -39,7 +39,7 @@
             </div>
             <div class="liked-videos-list" id="liked-videos-list">
                 <div class="liked-video-item">
-                    <img class="liked-video-thumbnail" src="assets/images/v1.jpg" alt="Amazing Travel Vlog">
+                    <img class="liked-video-thumbnail" src="../../assets/images/v1.jpg" alt="Amazing Travel Vlog">
                     <div class="progress-bar" style="width: 60%;"></div>
                     <div class="liked-video-info">
                         <div class="liked-video-title">Amazing Travel Vlog</div>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="liked-video-item">
-                    <img class="liked-video-thumbnail" src="assets/images/v2.jpg" alt="Tech Review: Latest Gadgets">
+                    <img class="liked-video-thumbnail" src="../../assets/images/v2.jpg" alt="Tech Review: Latest Gadgets">
                     <div class="progress-bar" style="width: 30%;"></div>
                     <div class="liked-video-info">
                         <div class="liked-video-title">Tech Review: Latest Gadgets</div>
@@ -87,7 +87,7 @@
                     </div>
                 </div>
                 <div class="liked-video-item">
-                    <img class="liked-video-thumbnail" src="assets/images/v3.jpg" alt="Cooking with Passion">
+                    <img class="liked-video-thumbnail" src="../../assets/images/v3.jpg" alt="Cooking with Passion">
                     <div class="progress-bar" style="width: 75%;"></div>
                     <div class="liked-video-info">
                         <div class="liked-video-title">Cooking with Passion</div>
@@ -118,6 +118,7 @@
                 <p>No videos liked yet.</p>
             </div>
         </div>
+        <?php include('../../ui/footer.php'); ?>
     </div>
 
     <!-- JavaScript -->

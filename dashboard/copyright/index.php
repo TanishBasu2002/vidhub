@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VIDHUB - Copyright</title>
-     <link rel="stylesheet" href="assets/css/copy_right.css">
+     <link rel="stylesheet" href="style.css">
     <!-- Boxicons CSS -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
-    <?php include 'sidebar.php'; ?>
+    <?php include '../../ui/sidebar.php'; ?>
 
     <!-- Main Content -->
     <div class="main-content" id="main-content">
         <!-- Top Bar -->
-        <?php include 'topbar.php'; ?>
+        <?php include '../../ui/topbar.php'; ?>
 
         <!-- Copyright Content -->
         <div class="copyright-container">
@@ -51,13 +51,10 @@
             </div>
         </div>
 
-        <!-- Footer -->
-        <div class="footer">
-            <p>&copy; 2025 VIDHUB. All rights reserved.</p>
-        </div>
+        <?php include('../../ui/footer.php'); ?>
     </div>
 
-    <script src="assets/js/copy_right.js">
+    <script src="script.js">
 
     </script>
 </body>

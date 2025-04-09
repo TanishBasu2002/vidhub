@@ -119,7 +119,7 @@
                 </div>
             </div>
         </div>
-
+        <?php include('../ui/footer.php'); ?>
     </div>
     <script src="script.js"></script>
 </body>

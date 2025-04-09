@@ -17,12 +17,12 @@
 
 <body>
     <!-- Sidebar -->
-    <?php include 'sidebar.php'; ?>
+    <?php include '../../ui/sidebar.php'; ?>
 
     <!-- Main Content -->
     <div class="main-content" id="main-content">
         <!-- Top Bar -->
-        <?php include 'topbar.php'; ?>
+        <?php include '../../ui/topbar.php'; ?>
 
         <!-- About Us Section -->
         <div class="about-section ">
@@ -87,6 +87,7 @@
                 </div>
             </div>
         </div>
+        <?php include('../../ui/footer.php'); ?>
     </div>
 
     <!-- JavaScript -->

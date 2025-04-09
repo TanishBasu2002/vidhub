@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VidHub - Terms & Conditions</title>
 
-      <link rel="stylesheet" href="styles.css">
+      <link rel="stylesheet" href="style.css">
 
     <!-- Boxicons CSS -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
@@ -17,12 +17,12 @@
 
 <body>
     <!-- Sidebar -->
-    <?php include 'sidebar.php'; ?>
+    <?php include '../../ui/sidebar.php'; ?>
 
     <!-- Main Content -->
     <div class="main-content" id="main-content">
         <!-- Top Bar -->
-        <?php include 'topbar.php'; ?>
+        <?php include '../../ui/topbar.php'; ?>
 
         <!-- Terms & Conditions Section -->
         <div class="terms-section">
@@ -131,6 +131,7 @@
                 </div>
             </div>
         </div>
+        <?php include('../../ui/footer.php'); ?>
     </div>
 
     <!-- JavaScript -->

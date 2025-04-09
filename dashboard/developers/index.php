@@ -12,12 +12,12 @@
 </head>
 
 <body>
-    <?php include 'sidebar.php'; ?>
+    <?php include '../../ui/sidebar.php'; ?>
 
     <!-- Main Content -->
     <div class="main-content" id="main-content">
         <!-- Top Bar -->
-        <?php include 'topbar.php'; ?>
+        <?php include '../../ui/topbar.php'; ?>
 
         <!-- Pass Key Form -->
         <div class="pass-key-container">
@@ -34,7 +34,7 @@
             </form>
         </div>
 
-        
+        <?php include('../../ui/footer.php'); ?>
     </div>
 
     <script src="script.js">

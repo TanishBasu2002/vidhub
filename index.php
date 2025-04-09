@@ -6,12 +6,12 @@ $darkMode = isset($_GET['dark']) && $_GET['dark'] == '1';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YouStream - Video SaaS Platform</title>
+  <title>Vidhub - Video SaaS Platform</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <div class="logo">YouStream</div>
+    <div class="logo">Vidhub</div>
     <nav class="nav-buttons">
       <a href="#features">Features</a>
       <a href="#pricing">Pricing</a>
@@ -21,7 +21,7 @@ $darkMode = isset($_GET['dark']) && $_GET['dark'] == '1';
   </header>
 
   <section class="hero">
-    <h1>Stream Smarter with YouStream</h1>
+    <h1>Stream Smarter with Vidhub</h1>
     <p>Your all-in-one video SaaS platform inspired by the power of YouTube.</p>
     <a href="#pricing" class="cta-button">Get Started</a>
   </section>
@@ -71,7 +71,7 @@ $darkMode = isset($_GET['dark']) && $_GET['dark'] == '1';
   <section class="testimonials" id="testimonials">
     <h2>What Our Users Say</h2>
     <div class="testimonial">
-      <p>"YouStream transformed how I deliver content to my audience. It's powerful and simple to use."</p>
+      <p>"Vidhub transformed how I deliver content to my audience. It's powerful and simple to use."</p>
       <strong>- Alex R.</strong>
     </div>
     <div class="testimonial">
@@ -80,10 +80,7 @@ $darkMode = isset($_GET['dark']) && $_GET['dark'] == '1';
     </div>
   </section>
 
-  <footer>
-    <p>&copy; <?php echo date("Y"); ?> YouStream. All rights reserved.</p>
-  </footer>
-
+  <?php include('./ui/footer.php'); ?>
   <a href="?dark=<?php echo $darkMode ? '0' : '1'; ?>" class="toggle-mode" title="Toggle Dark Mode">
     <?php echo $darkMode ? '☀️' : '🌙'; ?>
   </a>

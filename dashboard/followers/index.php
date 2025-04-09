@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <!-- Font Awesome for search icon -->
@@ -14,11 +14,11 @@
 </head>
 
 <body>
-    <?php include 'sidebar.php'; ?>
+    <?php include '../../ui/sidebar.php'; ?>
     <!-- Main Content -->
     <div class="main-content" id="main-content">
         <!-- Top Bar -->
-        <?php include 'topbar2.php'; ?>
+        <?php include '../../ui/topbar2.php'; ?>
 
         <div class="followers-header">
             <div class="followers-count">Your Followers: <span>1,245</span></div>
@@ -62,6 +62,7 @@
                 <button class="follow-button following" onclick="toggleFollow(this)">Following</button>
             </div>
         </div>
+        <?php include('../../ui/footer.php'); ?>
     </div>
 
     <script src="script.js">

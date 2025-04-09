@@ -1,5 +1,7 @@
 <?php
 // topbar.php
+$base_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+$auth_url = $base_url . '/vidhub/auth/';
 ?>
 <!-- Top Bar -->
 <div class="top-bar">
@@ -43,10 +45,10 @@
                             <div class="popup-body">
                                 <p>Looks like you’re not signed in yet. Join our community to unlock personalized features!</p>
                                 <div class="popup-buttons">
-                                    <a href="login_singup.php" class="btn register-btn">
+                                    <a href="<?php echo $auth_url; ?>login_signup/" class="btn register-btn">
                                         <i class='bx bx-user-plus'></i> Register Now
                                     </a>
-                                    <a href="login_singup.php" class="btn login-btn">
+                                    <a href="<?php echo $auth_url; ?>login_signup/" class="btn login-btn">
                                         <i class='bx bx-log-in'></i> Log In
                                     </a>
                                 </div>
