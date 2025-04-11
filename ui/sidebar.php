@@ -52,6 +52,13 @@ $root_url = $base_url . '/vidhub/'
                     <span class="text nav-text">Account</span>
                 </a>
             </li>
+
+            <li class="nav-link">
+                <a href="<?php echo $dashboard_url; ?>admin/">
+                    <i class='bx bx-user-circle icon' aria-hidden="true"></i>
+                    <span class="text nav-text">Admin</span>
+                </a>
+            </li>
             
             <li class="nav-link">
                 <a href="<?php echo $dashboard_url; ?>your_videos/">
