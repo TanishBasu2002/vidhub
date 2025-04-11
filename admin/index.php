@@ -1163,9 +1163,10 @@ body.dark .popup-footer p {
 </head>
 <body>
   <!-- Sidebar -->
-  <?php include '../../ui/sidebar.php'; ?>
+  <?php include '../ui/admin/adminsidebar.php'; ?>
 
   <!-- Top Bar -->
+  <?php include '../ui/topbar.php'; ?>
 
   <div class="dashboard-container">
     <div class="dashboard-header">
