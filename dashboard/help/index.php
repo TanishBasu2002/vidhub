@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VidHub - Help</title>
 
-     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- Boxicons CSS -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
@@ -16,6 +16,11 @@
 </head>
 
 <body>
+    <?php 
+    // Include the data file
+    include '../../lib/data.php';
+    ?>
+    
     <!-- Sidebar -->
     <?php include '../../ui/sidebar.php'; ?>
 
@@ -42,42 +47,24 @@
             <!-- FAQ Section -->
             <div class="faq-section">
                 <h3 class="faq-title">Frequently Asked Questions</h3>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span class="faq-question-text">How do I upload a video?</span>
-                        <i class='bx bx-chevron-down faq-icon'></i>
+                <?php if (isset($data['faqs']) && !empty($data['faqs'])): ?>
+                    <?php foreach ($data['faqs'] as $faq): ?>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span class="faq-question-text"><?php echo htmlspecialchars($faq['question']); ?></span>
+                                <i class='bx bx-chevron-down faq-icon'></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p><?php echo htmlspecialchars($faq['answer']); ?></p>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <div class="empty-state">
+                        <i class='bx bx-help-circle'></i>
+                        <p>No FAQs available at the moment.</p>
                     </div>
-                    <div class="faq-answer">
-                        <p>To upload a video, click on the "Upload" button in the top bar, select your video file, fill in the required details, and click "Publish." Ensure your video meets our community guidelines.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span class="faq-question-text">How can I delete a video from my liked list?</span>
-                        <i class='bx bx-chevron-down faq-icon'></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Go to the "Liked Videos" page from the sidebar, find the video you want to remove, click the three-dot menu, and select "Unlike." The video will be removed from your liked list.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span class="faq-question-text">Why is my video not playing?</span>
-                        <i class='bx bx-chevron-down faq-icon'></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Ensure you have a stable internet connection. If the issue persists, try clearing your browser cache or contact our support team for assistance.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span class="faq-question-text">How do I contact support?</span>
-                        <i class='bx bx-chevron-down faq-icon'></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>You can contact support by filling out the form below or using the live chat option in the bottom-right corner of this page.</p>
-                    </div>
-                </div>
+                <?php endif; ?>
             </div>
 
             <!-- Contact Section -->
@@ -110,9 +97,6 @@
     </div>
 
     <!-- JavaScript -->
-    <script src="script.js">
-
-    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>

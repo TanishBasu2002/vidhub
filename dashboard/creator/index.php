@@ -3,111 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registered creaters</title>
+  <title>Registered Creators</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <!-- Boxicons CSS -->
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-  <header>
-    <div class="header-container">
-      <img src="logo.svg" alt="logo" class="header-logo">
-      <h1>Registered creaters</h1>
+  <?php 
+  // Include the data file
+  include '../../lib/data.php';
+  ?>
+  
+  <!-- Sidebar -->
+  <?php include '../../ui/sidebar.php'; ?>
+  
+  <!-- Main Content -->
+  <div class="main-content" id="main-content">
+    <!-- Top Bar -->
+    <?php include '../../ui/topbar.php'; ?>
+
+    <div class="creators-header">
+      <h1>Registered Creators</h1>
       <div class="header-info">
-        <span id="total-creators">0</span> 
+        <span id="total-creators"><?php echo count($data['creators']); ?></span> 
         <span>Creators Online</span>
         <span>•</span>
         <i class="far fa-clock"></i>
-        <span id="current-time">00:00:00</span>
+        <span id="current-time"><?php echo date('H:i:s'); ?></span>
       </div>
     </div>
-  </header>
 
-  <main>
-    <form id="creators-form">
-      <div id="creators-list" class="creator-container">
-        <!-- Demo Data (would come from database in production) -->
-        <div class="creator-card" data-id="1">
-          <div class="profile-pic-container">
-            <img class="creator-image" src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Profile Picture">
-          </div>
-          <div class="creator-fields">
-            <div class="field-container">
-              <label>Channel Name:</label>
-              <input type="text" class="channel-input" name="channel[]" value="Alex Creates" readonly>
-            </div>
-            <div class="field-container">
-              <label>Creation Date:</label>
-              <input type="text" class="date-input" name="creation_date[]" value="5/15/2023, 10:30:00 AM" readonly>
-            </div>
-            <div class="hidden-fields" style="display:none">
-              <div class="field-container">
-                <label>Name:</label>
-                <input type="text" class="name-input" name="name[]" value="Alex Johnson" readonly>
+    <main>
+      <form id="creators-form">
+        <div id="creators-list" class="creator-container">
+          <?php if (isset($data['creators']) && !empty($data['creators'])): ?>
+            <?php foreach ($data['creators'] as $creator): ?>
+              <div class="creator-card" data-id="<?php echo $creator['id']; ?>">
+                <div class="profile-pic-container">
+                  <img class="creator-image" src="<?php echo $creator['image']; ?>" alt="Profile Picture">
+                </div>
+                <div class="creator-fields">
+                  <div class="field-container">
+                    <label>Channel Name:</label>
+                    <input type="text" class="channel-input" name="channel[]" value="<?php echo htmlspecialchars($creator['channel']); ?>" readonly>
+                  </div>
+                  <div class="field-container">
+                    <label>Creation Date:</label>
+                    <input type="text" class="date-input" name="creation_date[]" value="<?php echo htmlspecialchars($creator['creation_date']); ?>" readonly>
+                  </div>
+                  <div class="hidden-fields" style="display:none">
+                    <div class="field-container">
+                      <label>Name:</label>
+                      <input type="text" class="name-input" name="name[]" value="<?php echo htmlspecialchars($creator['name']); ?>" readonly>
+                    </div>
+                    <div class="field-container">
+                      <label>Email:</label>
+                      <input type="email" class="email-input" name="email[]" value="<?php echo htmlspecialchars($creator['email']); ?>" readonly>
+                    </div>
+                    <div class="field-container">
+                      <label>Phone:</label>
+                      <input type="tel" class="phone-input" name="phone[]" value="<?php echo htmlspecialchars($creator['phone']); ?>" readonly>
+                    </div>
+                  </div>
+                </div>
+                <button type="button" class="delete-btn">
+                  <i class="fas fa-trash"></i> Delete
+                </button>
               </div>
-              <div class="field-container">
-                <label>Email:</label>
-                <input type="email" class="email-input" name="email[]" value="alex@example.com" readonly>
-              </div>
-              <div class="field-container">
-                <label>Phone:</label>
-                <input type="tel" class="phone-input" name="phone[]" value="+1 (555) 123-4567" readonly>
-              </div>
+            <?php endforeach; ?>
+          <?php else: ?>
+            <div class="empty-state">
+              <i class='bx bx-user'></i>
+              <p>No registered creators found.</p>
             </div>
-          </div>
-          <button type="button" class="delete-btn">
-            <i class="fas fa-trash"></i> Delete
-          </button>
+          <?php endif; ?>
         </div>
+      </form>
+    </main>
 
-        <template id="creator-template">
-          <div class="creator-card" data-id="">
-            <div class="profile-pic-container">
-              <img class="creator-image" src="" alt="Profile Picture">
-            </div>
-            <div class="creator-fields">
-              <div class="field-container">
-                <label>Channel Name:</label>
-                <input type="text" class="channel-input" name="channel[]" readonly>
-              </div>
-              <div class="field-container">
-                <label>Creation Date:</label>
-                <input type="text" class="date-input" name="creation_date[]" readonly>
-              </div>
-              <div class="hidden-fields">
-                <div class="field-container">
-                  <label>Name:</label>
-                  <input type="text" class="name-input" name="name[]" readonly>
-                </div>
-                <div class="field-container">
-                  <label>Email:</label>
-                  <input type="email" class="email-input" name="email[]" readonly>
-                </div>
-                <div class="field-container">
-                  <label>Phone:</label>
-                  <input type="tel" class="phone-input" name="phone[]" readonly>
-                </div>
-              </div>
-            </div>
-            <button type="button" class="delete-btn">
-              <i class="fas fa-trash"></i> Delete
-            </button>
-          </div>
-        </template>
-      </div>
-    </form>
-  </main>
-
-  <!-- Delete Confirmation Modal -->
-  <div id="delete-modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <i class="fas fa-exclamation-circle"></i>
-        <h3>Confirm Deletion</h3>
-        <p>Are you sure you want to delete this creator? This action cannot be undone.</p>
-      </div>
-      <div class="modal-buttons">
-        <button id="cancel-delete">Cancel</button>
-        <button id="confirm-delete">Delete</button>
+    <!-- Delete Confirmation Modal -->
+    <div id="delete-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <i class="fas fa-exclamation-circle"></i>
+          <h3>Confirm Deletion</h3>
+          <p>Are you sure you want to delete this creator? This action cannot be undone.</p>
+        </div>
+        <div class="modal-buttons">
+          <button id="cancel-delete">Cancel</button>
+          <button id="confirm-delete">Delete</button>
+        </div>
       </div>
     </div>
     <?php include('../../ui/footer.php'); ?>

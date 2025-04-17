@@ -16,6 +16,11 @@
 </head>
 
 <body>
+    <?php 
+    // Include the data file
+    include '../../lib/data.php';
+    ?>
+    
     <!-- Sidebar -->
     <?php include '../../ui/sidebar.php'; ?>
 
@@ -38,93 +43,51 @@
                 </div>
             </div>
             <div class="liked-videos-list" id="liked-videos-list">
-                <div class="liked-video-item">
-                    <img class="liked-video-thumbnail" src="../../assets/images/v1.jpg" alt="Amazing Travel Vlog">
-                    <div class="progress-bar" style="width: 60%;"></div>
-                    <div class="liked-video-info">
-                        <div class="liked-video-title">Amazing Travel Vlog</div>
-                        <div class="liked-video-details">Channel: Travel Life | Views: 1.2M | Duration: 12:34 | Liked: 2 days ago</div>
-                    </div>
-                    <button class="menu-btn">
-                        <i class='bx bx-dots-vertical-rounded'></i>
-                    </button>
-                    <div class="video-options-popup">
-                        <div class="video-options-list">
-                            <a href="#" class="video-option">
-                                <i class='bx bx-play'></i> Play Now
-                            </a>
-                            <a href="#" class="video-option">
-                                <i class='bx bx-share'></i> Share
-                            </a>
-                            <a href="#" class="video-option unlike">
-                                <i class='bx bx-heart'></i> Unlike
-                            </a>
+                <?php if (isset($data['liked_videos']) && !empty($data['liked_videos'])): ?>
+                    <?php foreach ($data['liked_videos'] as $video): ?>
+                        <div class="liked-video-item">
+                            <img class="liked-video-thumbnail" src="<?php echo $video['thumbnail']; ?>" alt="<?php echo htmlspecialchars($video['title']); ?>">
+                            <div class="progress-bar" style="width: <?php echo $video['progress']; ?>%;"></div>
+                            <div class="liked-video-info">
+                                <div class="liked-video-title"><?php echo htmlspecialchars($video['title']); ?></div>
+                                <div class="liked-video-details">
+                                    Channel: <?php echo htmlspecialchars($video['channel']); ?> | 
+                                    Views: <?php echo $video['views']; ?> | 
+                                    Duration: <?php echo $video['duration']; ?> | 
+                                    Liked: <?php echo $video['liked_date']; ?>
+                                </div>
+                            </div>
+                            <button class="menu-btn">
+                                <i class='bx bx-dots-vertical-rounded'></i>
+                            </button>
+                            <div class="video-options-popup">
+                                <div class="video-options-list">
+                                    <a href="#" class="video-option">
+                                        <i class='bx bx-play'></i> Play Now
+                                    </a>
+                                    <a href="#" class="video-option">
+                                        <i class='bx bx-share'></i> Share
+                                    </a>
+                                    <a href="#" class="video-option unlike">
+                                        <i class='bx bx-heart'></i> Unlike
+                                    </a>
+                                </div>
+                            </div>
                         </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <div class="empty-state">
+                        <i class='bx bx-heart'></i>
+                        <p>No videos liked yet.</p>
                     </div>
-                </div>
-                <div class="liked-video-item">
-                    <img class="liked-video-thumbnail" src="../../assets/images/v2.jpg" alt="Tech Review: Latest Gadgets">
-                    <div class="progress-bar" style="width: 30%;"></div>
-                    <div class="liked-video-info">
-                        <div class="liked-video-title">Tech Review: Latest Gadgets</div>
-                        <div class="liked-video-details">Channel: Tech Guru | Views: 800K | Duration: 08:15 | Liked: 3 days ago</div>
-                    </div>
-                    <button class="menu-btn">
-                        <i class='bx bx-dots-vertical-rounded'></i>
-                    </button>
-                    <div class="video-options-popup">
-                        <div class="video-options-list">
-                            <a href="#" class="video-option">
-                                <i class='bx bx-play'></i> Play Now
-                            </a>
-                            <a href="#" class="video-option">
-                                <i class='bx bx-share'></i> Share
-                            </a>
-                            <a href="#" class="video-option unlike">
-                                <i class='bx bx-heart'></i> Unlike
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="liked-video-item">
-                    <img class="liked-video-thumbnail" src="../../assets/images/v3.jpg" alt="Cooking with Passion">
-                    <div class="progress-bar" style="width: 75%;"></div>
-                    <div class="liked-video-info">
-                        <div class="liked-video-title">Cooking with Passion</div>
-                        <div class="liked-video-details">Channel: Chef Delight | Views: 600K | Duration: 15:20 | Liked: 5 days ago</div>
-                    </div>
-                    <button class="menu-btn">
-                        <i class='bx bx-dots-vertical-rounded'></i>
-                    </button>
-                    <div class="video-options-popup">
-                        <div class="video-options-list">
-                            <a href="#" class="video-option">
-                                <i class='bx bx-play'></i> Play Now
-                            </a>
-                            <a href="#" class="video-option">
-                                <i class='bx bx-share'></i> Share
-                            </a>
-                            <a href="#" class="video-option unlike">
-                                <i class='bx bx-heart'></i> Unlike
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <?php endif; ?>
             </div>
             <div class="loading-spinner"></div>
-            <!-- Empty State for Liked Videos -->
-            <div class="empty-state" id="liked-videos-empty-state" style="display: none;">
-                <i class='bx bx-heart'></i>
-                <p>No videos liked yet.</p>
-            </div>
         </div>
         <?php include('../../ui/footer.php'); ?>
     </div>
 
     <!-- JavaScript -->
-    <script src="script.js">
-
-    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,221 @@
+.feedback-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    animation: fadeIn 0.5s ease;
+}
+
+.feedback-card {
+    background-color: var(--sidebar-color);
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    transition: var(--tran-04);
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback-card:hover {
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-5px);
+}
+
+.feedback-header {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--toggle-color);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-name {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.feedback-date {
+    font-size: 0.8rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.feedback-rating {
+    display: flex;
+    gap: 5px;
+}
+
+.rating-star {
+    color: var(--warning-color);
+}
+
+.feedback-body {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.feedback-text {
+    color: var(--text-color);
+    margin-bottom: 15px;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.feedback-category {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: var(--primary-color-light);
+    color: var(--primary-color);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.feedback-actions {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--toggle-color);
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: var(--tran-03);
+}
+
+.action-btn:hover {
+    color: var(--primary-color);
+}
+
+.action-btn.respond-btn:hover {
+    color: var(--success-color);
+}
+
+.action-btn.delete-btn:hover {
+    color: var(--danger-color);
+}
+
+.filter-options {
+    display: flex;
+    gap: 15px;
+    padding: 0 20px;
+    margin-bottom: 10px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+.filter-btn {
+    background-color: var(--primary-color-light);
+    color: var(--text-color);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: var(--tran-03);
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 20px;
+}
+
+.stat-card {
+    background-color: var(--sidebar-color);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: var(--card-shadow);
+    transition: var(--tran-04);
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--hover-shadow);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+
+.stat-icon.positive {
+    background-color: rgba(40, 167, 69, 0.2);
+    color: var(--success-color);
+}
+
+.stat-icon.neutral {
+    background-color: rgba(23, 162, 184, 0.2);
+    color: var(--info-color);
+}
+
+.stat-icon.negative {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: var(--danger-color);
+}
+
+.stat-icon.total {
+    background-color: rgba(105, 92, 254, 0.2);
+    color: var(--primary-color);
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
