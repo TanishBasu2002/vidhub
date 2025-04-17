@@ -81,3 +81,30 @@ function setupEventListeners() {
 // Initialize the app when DOM is loaded
 document.addEventListener('DOMContentLoaded', init);
 
+let videoToDelete = null;
+function showPopup(videoTitle) {
+    videoToDelete = event.target.closest('.delete-btn').closest('.video-item');
+    document.getElementById('videoTitle').textContent = videoTitle;
+    document.getElementById('deletePopup').style.display = 'flex';
+}
+
+function hidePopup() {
+    document.getElementById('deletePopup').style.display = 'none';
+    videoToDelete = null;
+}
+
+function confirmDelete() {
+    if (videoToDelete) {
+        videoToDelete.remove();
+        updateVideoCount();
+        hidePopup();
+    }
+}
+
+function updateVideoCount() {
+    const videoCountElement = document.getElementById('video-count');
+    const videoItems = document.querySelectorAll('.video-item');
+    videoCountElement.textContent = videoItems.length;
+}
+
+document.addEventListener('DOMContentLoaded', updateVideoCount);

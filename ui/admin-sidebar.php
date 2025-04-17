@@ -7,7 +7,7 @@ $current_url = $base_url . $_SERVER['REQUEST_URI'];
 $is_admin = strpos($current_url, '/admin/') !== false;
 
 // URLs
-$dashboard_url = $base_url . '/vidhub/dashboard/';
+
 $admin_url = $base_url . '/vidhub/admin/';
 $root_url = $base_url . '/vidhub/';
 
@@ -46,76 +46,36 @@ $user_data = [
             'icon' => 'bx-home-alt',
             'path' => ''
         ],
-        'Trending' => [
+        'Form' => [
             'icon' => 'bx-bar-chart-alt-2',
-            'path' => 'trending/'
+            'path' => 'adminform/'
         ],
-        'History' => [
+        'Creator' => [
             'icon' => 'bx-history',
-            'path' => 'history/'
+            'path' => 'creator/'
         ],
-        'Account' => [
-            'icon' => 'bx-user-circle',
-            'path' => 'account/'
-        ],
-        'Your Videos' => [
+        'Repost' => [
             'icon' => 'bx-video',
-            'path' => 'your_videos/'
+            'path' => 'repost/'
         ],
-        'Followers' => [
-            'icon' => 'bx-group',
-            'path' => 'followers/'
+        'User' => [
+            'icon' => 'bx-user-circle',
+            'path' => 'user/'
         ],
-        'Playlist' => [
-            'icon' => 'bx-movie-play',
-            'path' => 'playlist/'
-        ],
-        'Watch Later' => [
-            'icon' => 'bx-time-five',
-            'path' => 'watch_later/'
-        ],
-        'Liked Videos' => [
-            'icon' => 'bx-heart',
-            'path' => 'liked_videos/'
-        ],
-        'Help' => [
-            'icon' => 'bx-help-circle',
-            'path' => 'help/'
-        ],
-        'Privacy Policy' => [
+        'Feedback' => [
             'icon' => 'bx-lock-alt',
-            'path' => 'privacy_policy/'
+            'path' => 'user-feedback/'
         ],
-        'Terms & Conditions' => [
-            'icon' => 'bx-donate-heart',
-            'path' => 'terms_conditions/'
-        ],
-        'About' => [
-            'icon' => 'bx-label',
-            'path' => 'about/'
-        ],
-        'Copyright' => [
-            'icon' => 'bx-copy-alt',
-            'path' => 'copyright/'
-        ],
-        'Send Feedback' => [
-            'icon' => 'bx-edit-alt',
-            'path' => 'send_feedback/'
-        ],
-        'Developers' => [
-            'icon' => 'bx-terminal',
-            'path' => 'developers/'
-        ]
     ];
 
     // Support links (separated for better organization)
     $supportItems = [
-        
+       
     ];
 
     // Get current path
     $current_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-    $dashboard_path = parse_url($dashboard_url, PHP_URL_PATH);
+    $dashboard_path = parse_url($admin_url, PHP_URL_PATH);
     $is_dashboard = strpos($current_path, $dashboard_path) === 0;
 
     // Function to check if menu item is active
@@ -130,7 +90,7 @@ $user_data = [
         $active = $is_dashboard && isActive($dashboard_path, $item['path'], $dashboard_path, $current_path);
         ?>
         <li class="nav-link <?= $active ? 'active' : '' ?>">
-            <a href="<?= $dashboard_url . $item['path'] ?>" <?= $active ? 'aria-current="page"' : '' ?>>
+            <a href="<?= $admin_url . $item['path'] ?>" <?= $active ? 'aria-current="page"' : '' ?>>
                 <i class='bx <?= $item['icon'] ?> icon' aria-hidden="true"></i>
                 <span class="text nav-text"><?= $text ?></span>
             </a>
@@ -140,6 +100,21 @@ $user_data = [
     ?>
 
     <li class="menu-divider" aria-hidden="true"></li>
+
+    <?php
+    // Support menu items
+    foreach ($supportItems as $text => $item) {
+        $active = $is_dashboard && isActive($dashboard_path, $item['path'], $dashboard_path, $current_path);
+        ?>
+        <li class="nav-link <?= $active ? 'active' : '' ?>">
+            <a href="<?= $admin_url . $item['path'] ?>" <?= $active ? 'aria-current="page"' : '' ?>>
+                <i class='bx <?= $item['icon'] ?> icon' aria-hidden="true"></i>
+                <span class="text nav-text"><?= $text ?></span>
+            </a>
+        </li>
+        <?php
+    }
+    ?>
 </ul>
         
         <div class="bottom-content">
@@ -155,7 +130,7 @@ $user_data = [
                 
                 <?php if ($user_data['is_admin']): ?>
                     <li class="nav-link">
-                        <a href="<?= $is_admin ? $dashboard_url : $admin_url ?>">
+                        <a href="<?= $is_admin ? $admin_url : $admin_url ?>">
                             <i class='bx bx-<?= $is_admin ? 'user' : 'shield-alt' ?> icon'></i>
                             <span class="text nav-text"><?= $is_admin ? 'User View' : 'Admin Panel' ?></span>
                         </a>

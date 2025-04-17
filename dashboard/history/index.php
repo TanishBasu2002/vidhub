@@ -13,6 +13,11 @@
 </head>
 
 <body>
+    <?php 
+    // Include the data file
+    include '../../lib/data.php';
+    ?>
+    
     <!-- Sidebar -->
     <?php include '../../ui/sidebar.php'; ?>
 
@@ -28,41 +33,28 @@
                 <button class="clear-all-btn" id="clear-all-btn">Clear All History</button>
             </div>
             <div class="history-list" id="history-list">
-                <div class="history-item">
-                    <img class="history-thumbnail" src="../../assets/images/v1.jpg" alt="Amazing Travel Vlog">
-                    <div class="history-info">
-                        <div class="history-video-title">Amazing Travel Vlog</div>
-                        <div class="history-details">Channel: Travel Life | Watched: 2 days ago</div>
+                <?php if (isset($data['watch_history']) && !empty($data['watch_history'])): ?>
+                    <?php foreach ($data['watch_history'] as $video): ?>
+                        <div class="history-item">
+                            <img class="history-thumbnail" src="<?php echo $video['thumbnail']; ?>" alt="<?php echo htmlspecialchars($video['title']); ?>">
+                            <div class="history-info">
+                                <div class="history-video-title"><?php echo htmlspecialchars($video['title']); ?></div>
+                                <div class="history-details">
+                                    Channel: <?php echo htmlspecialchars($video['channel']); ?> | 
+                                    Watched: <?php echo $video['watched_date']; ?>
+                                </div>
+                            </div>
+                            <button class="delete-btn">
+                                <i class='bx bx-trash'></i>
+                            </button>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <div class="empty-state">
+                        <i class='bx bx-history'></i>
+                        <p>Your watch history is empty.</p>
                     </div>
-                    <button class="delete-btn">
-                        <i class='bx bx-trash'></i>
-                    </button>
-                </div>
-                <div class="history-item">
-                    <img class="history-thumbnail" src="../../assets/images/v2.jpg" alt="Tech Review: Latest Gadgets">
-                    <div class="history-info">
-                        <div class="history-video-title">Tech Review: Latest Gadgets</div>
-                        <div class="history-details">Channel: Tech Guru | Watched: 3 days ago</div>
-                    </div>
-                    <button class="delete-btn">
-                        <i class='bx bx-trash'></i>
-                    </button>
-                </div>
-                <div class="history-item">
-                    <img class="history-thumbnail" src="../../assets/images/v3.jpg" alt="Cooking with Passion">
-                    <div class="history-info">
-                        <div class="history-video-title">Cooking with Passion</div>
-                        <div class="history-details">Channel: Chef Delight | Watched: 5 days ago</div>
-                    </div>
-                    <button class="delete-btn">
-                        <i class='bx bx-trash'></i>
-                    </button>
-                </div>
-            </div>
-            <!-- Empty State for Watch History -->
-            <div class="empty-state" id="empty-state" style="display: none;">
-                <i class='bx bx-history'></i>
-                <p>Your watch history is empty.</p>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -73,46 +65,32 @@
                 <button class="clear-all-btn" id="clear-shorts-btn">Clear Shorts History</button>
             </div>
             <div class="shorts-history-list" id="shorts-history-list">
-                <div class="shorts-history-item">
-                    <img class="shorts-history-thumbnail" src="../../assets/images/s1.jpg" alt="Short 1">
-                    <div class="shorts-history-info">
-                        <div class="shorts-history-video-title">Funny Cat Short</div>
-                        <div class="shorts-history-details">Channel: Pet Clips | Watched: 1 day ago</div>
+                <?php if (isset($data['shorts_history']) && !empty($data['shorts_history'])): ?>
+                    <?php foreach ($data['shorts_history'] as $short): ?>
+                        <div class="shorts-history-item">
+                            <img class="shorts-history-thumbnail" src="<?php echo $short['thumbnail']; ?>" alt="<?php echo htmlspecialchars($short['title']); ?>">
+                            <div class="shorts-history-info">
+                                <div class="shorts-history-video-title"><?php echo htmlspecialchars($short['title']); ?></div>
+                                <div class="shorts-history-details">
+                                    Channel: <?php echo htmlspecialchars($short['channel']); ?> | 
+                                    Watched: <?php echo $short['watched_date']; ?>
+                                </div>
+                            </div>
+                            <button class="delete-btn">
+                                <i class='bx bx-trash'></i>
+                            </button>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <div class="empty-state">
+                        <i class='bx bxs-devices'></i>
+                        <p>Your Shorts history is empty.</p>
                     </div>
-                    <button class="delete-btn">
-                        <i class='bx bx-trash'></i>
-                    </button>
-                </div>
-                <div class="shorts-history-item">
-                    <img class="shorts-history-thumbnail" src="../../assets/images/s3.jpg" alt="Short 2">
-                    <div class="shorts-history-info">
-                        <div class="shorts-history-video-title">Quick Dance Move</div>
-                        <div class="shorts-history-details">Channel: Dance Vibes | Watched: 2 days ago</div>
-                    </div>
-                    <button class="delete-btn">
-                        <i class='bx bx-trash'></i>
-                    </button>
-                </div>
-                <div class="shorts-history-item">
-                    <img class="shorts-history-thumbnail" src="../../assets/images/s4.jpg" alt="Short 3">
-                    <div class="shorts-history-info">
-                        <div class="shorts-history-video-title">DIY Craft Idea</div>
-                        <div class="shorts-history-details">Channel: Crafty Hub | Watched: 3 days ago</div>
-                    </div>
-                    <button class="delete-btn">
-                        <i class='bx bx-trash'></i>
-                    </button>
-                </div>
-            </div>
-            <!-- Empty State for Shorts History -->
-            <div class="empty-state" id="shorts-empty-state" style="display: none;">
-                <i class='bx bxs-devices'></i>
-                <p>Your Shorts history is empty.</p>
+                <?php endif; ?>
             </div>
         </div>
         <?php include('../../ui/footer.php'); ?>
     </div>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
