@@ -147,7 +147,7 @@ $user_data = [
             
             <ul>
                 <li class="nav-link">
-                    <a href="<?= $root_url ?>logout">
+                    <a href="<?= $root_url ?>/auth/login_signup">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Logout</span>
                     </a>
